@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { PublicacionService } from '../../publicacion.service';
 import { PublicacionComponent } from '../../components/publicacion/publicacion.component';
@@ -9,15 +9,19 @@ import { PublicacionComponent } from '../../components/publicacion/publicacion.c
   templateUrl: './bandeja.component.html',
   styleUrl: './bandeja.component.css'
 })
-export class BandejaComponent {
+export class BandejaComponent implements OnInit  {
 
   publicacionesList : any[] = []
 
   constructor(public publicacionService: PublicacionService){}
 
+  ngOnInit(): void {
+      this.getPublicaciones()
+  }
+
   getPublicaciones(){
     this.publicacionService.getPublicaciones().subscribe({
-      next: (data)=>{
+      next: (data : any[])=>{
         this.publicacionesList = data;
       }
     })

@@ -1,0 +1,9 @@
+div{
+
+    margin: 3rem;
+    display: flex;
+    justify-content: left;
+    align-items: start;
+    border: 0.1rem solid black;
+    height: 5rem;
+}
