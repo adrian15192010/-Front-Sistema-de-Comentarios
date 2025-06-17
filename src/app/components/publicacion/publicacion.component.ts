@@ -10,6 +10,10 @@ export class PublicacionComponent {
 
   publicacion = input<any>();
 
+  
 
+  aviso(){
+    alert()
+  }
 
 }
