@@ -18,7 +18,7 @@
 }
 
 input[type="checkbox"]{
-    margin-right: 3rem;
+    margin-right: .5rem;
 }
 
 .comentario-logo{
@@ -29,10 +29,16 @@ input[type="checkbox"]{
 }
 
 .block{
+    margin-top: 2rem;
     width: 50rem;
     display: inline-block;
 }
 
 .sin-borde{
     border: 1rem;
+}
+
+.reacciones-numeros, .comentarios-numeros{
+    display: inline;
+    margin-right: 4rem;
 }
