@@ -1,9 +1,10 @@
 import { Component, input, OnInit } from '@angular/core';
 import { PublicacionService } from '../../publicacion.service';
+import { ComentarioComponent } from '../comentario/comentario.component';
 
 @Component({
   selector: 'app-publicacion',
-  imports: [],
+  imports: [ComentarioComponent],
   templateUrl: './publicacion.component.html',
   styleUrl: './publicacion.component.css'
 })

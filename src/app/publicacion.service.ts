@@ -11,7 +11,7 @@ export class PublicacionService {
 
   getPublicaciones(){
 
-  const token = 'eyJhbGciOiJIUzM4NCJ9.eyJuYW1lIjoiZGllZ28iLCJzdWIiOiJhZHJpYW4xNTE5MjAxMEBnbWFpbC5jb20iLCJpYXQiOjE3NTAyODA0MDYsImV4cCI6MTc1MDg4NTIwNn0.bZm9I9uPJc9B8XCWUIUX7495UsP1IATzesB81Sb4Zbq65NleM7PJzeVPHrHfX4c1'; // Reemplázalo con tu token real
+  const token = 'eyJhbGciOiJIUzM4NCJ9.eyJuYW1lIjoiZGllZ28iLCJzdWIiOiJhZHJpYW4xNTE5MjAxMEBnbWFpbC5jb20iLCJpYXQiOjE3NTAzNjMyODUsImV4cCI6MTc1MDk2ODA4NX0.VLRzRstQnP0wFMxGWm_E1v3Z6tNk5AfSI5rLITv3gTAOID526MB0ZJ1hqk7AAogz'; // Reemplázalo con tu token real
   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
   return this.http.get<any[]>(`http://localhost:8040/api/publicacion/all?pagina=0`,

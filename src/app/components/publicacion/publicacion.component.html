@@ -8,9 +8,7 @@
     <br>
     <div class="block">
         @for (comentario of comentarios; track $index) {
-            <div class="contenedor">
-               <p class="text">{{comentario.text}}</p> 
-            </div>
+            <app-comentario [comentario]="comentario"></app-comentario>
         }
     </div>
 </div>
