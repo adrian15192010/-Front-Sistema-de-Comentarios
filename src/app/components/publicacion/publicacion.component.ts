@@ -13,21 +13,16 @@ export class PublicacionComponent implements OnInit{
   publicacion = input<any>();
   comentarios : any = []
   comentariosVisible : boolean = false
-  reaccionesList : any = []
+  
 
   constructor(public publicacionService: PublicacionService){}
 
-  ngOnInit(): void {
-    (document.querySelector(`${this.publicacion().id}`) as HTMLInputElement).checked = this.publicacion().haveYourReaction;
-    
-  }
+  ngOnInit(): void {}
 
   getComentarios(){
     this.publicacionService.getComentarios(this.publicacion().id).subscribe({
       next: (comentarios)=>{
         this.comentarios = comentarios
-        this.reaccionesList = this.comentarios().reaccionList
-        
       }
     })
     this.comentariosVisible = true
@@ -44,11 +39,8 @@ export class PublicacionComponent implements OnInit{
 
   this.publicacionService.reaccionar(this.publicacion().id).subscribe({
     next:(data)=>{
-
       console.log(data)
-      this.reaccionesList = data
-      console.log(this.reaccionesList)
-      
+       
     },
     error: (e)=>{
       console.log(e)
