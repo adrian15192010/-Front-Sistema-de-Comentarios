@@ -18,8 +18,8 @@ export class PublicacionComponent implements OnInit{
   constructor(public publicacionService: PublicacionService){}
 
   ngOnInit(): void {
-    (document.querySelector(`${this.publicacion().id}_inputReaction`) as HTMLInputElement).checked = this.publicacion().haveYourReaction;
-    console.log(document.querySelector(`${this.publicacion().id}_inputReaction`))
+    (document.querySelector(`${this.publicacion().id}`) as HTMLInputElement).checked = this.publicacion().haveYourReaction;
+    
   }
 
   getComentarios(){
