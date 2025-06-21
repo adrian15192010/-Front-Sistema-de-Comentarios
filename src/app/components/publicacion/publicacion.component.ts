@@ -40,8 +40,11 @@ export class PublicacionComponent implements OnInit{
 
   this.publicacionService.reaccionar(this.publicacion().id).subscribe({
     next:(data)=>{
+
       console.log(data)
       this.reaccionesList = data
+      console.log(this.reaccionesList)
+      
     },
     error: (e)=>{
       console.log(e)
