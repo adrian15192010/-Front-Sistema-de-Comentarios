@@ -12,6 +12,7 @@ export class PublicacionComponent implements OnInit{
 
   publicacion = input<any>();
   comentarios : any = []
+  comentariosVisible : boolean = false
 
   constructor(public publicacionService: PublicacionService){}
 
@@ -23,10 +24,19 @@ export class PublicacionComponent implements OnInit{
         this.comentarios = comentarios
       }
     })
+    this.comentariosVisible = true
   }
 
-  aviso(){
-    console.log(this.comentarios)
+  ocultarComentarios(){
+    this.comentariosVisible = false
+    this.comentarios = []
   }
+
+  aviso(e: any){
+  const isChecked = (e.target as HTMLInputElement).checked;
+  console.log(isChecked); // true o false
+  }
+
+
 
 }
