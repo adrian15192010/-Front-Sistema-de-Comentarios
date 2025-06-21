@@ -13,6 +13,7 @@ export class PublicacionComponent implements OnInit{
   publicacion = input<any>();
   comentarios : any = []
   comentariosVisible : boolean = false
+  reaccionesList : any = []
 
   constructor(public publicacionService: PublicacionService){}
 
@@ -22,6 +23,7 @@ export class PublicacionComponent implements OnInit{
     this.publicacionService.getComentarios(this.publicacion().id).subscribe({
       next: (comentarios)=>{
         this.comentarios = comentarios
+        this.reaccionesList = this.comentarios().reaccionList
       }
     })
     this.comentariosVisible = true
@@ -32,9 +34,20 @@ export class PublicacionComponent implements OnInit{
     this.comentarios = []
   }
 
-  aviso(e: any){
+  reaccionar(e: any){
   const isChecked = (e.target as HTMLInputElement).checked;
   console.log(isChecked); // true o false
+
+  this.publicacionService.reaccionar(this.publicacion().id).subscribe({
+    next:(data)=>{
+      console.log(data)
+      this.reaccionesList = data
+    },
+    error: (e)=>{
+      console.log(e)
+    }
+  })  
+
   }
 
 

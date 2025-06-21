@@ -1,7 +1,7 @@
 <div class="contenedor">
     <p class="text">{{publicacion().text}}</p>
     <div class="block sin-borde">
-        <input type="checkbox" (click)="aviso($event)"><p class="reacciones-numeros">{{publicacion().reaccionList.length}}</p>
+        <input type="checkbox" (click)="reaccionar($event)"><p class="reacciones-numeros">{{reaccionesList.length}}</p>
         <img  [attr.data-id]="publicacion().id" class="comentario-logo" src="https://png.pngtree.com/png-clipart/20221118/ourmid/pngtree-comment-icon-symbol-png-image_6459148.png" alt="">
         <p class="comentarios-numeros">{{publicacion().sizeComentario}}</p>
         @if (comentariosVisible) {
