@@ -17,13 +17,17 @@ export class PublicacionComponent implements OnInit{
 
   constructor(public publicacionService: PublicacionService){}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    (document.querySelector("input") as HTMLInputElement).checked = this.publicacion().haveYourReaction;
+    console.log(document.querySelector("input"))
+  }
 
   getComentarios(){
     this.publicacionService.getComentarios(this.publicacion().id).subscribe({
       next: (comentarios)=>{
         this.comentarios = comentarios
         this.reaccionesList = this.comentarios().reaccionList
+        
       }
     })
     this.comentariosVisible = true
