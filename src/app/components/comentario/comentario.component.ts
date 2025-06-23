@@ -11,19 +11,20 @@ import { ComentarioService } from '../../comentario.service';
 export class ComentarioComponent {
 
    comentario = input<any>();
-   respuestas : any = []
+   respuestas : any = [];
+   respuestasVisible : boolean = false
 
    constructor(public comentarioService: ComentarioService){}
 
    
+  getRespuestas(){
+    this.respuestas = this.comentario().respuestaList;
+    this.respuestasVisible = true
+  }
 
-
-  getRespuesta(){
-    this.comentarioService.getRespuestas(this.comentario().id).subscribe({
-      next: (data)=>{
-        this.respuestas = data
-      }
-    })
+  ocultarRespuestas(){
+    this.respuestasVisible = false
+    this.respuestas = []
   }
 
 }

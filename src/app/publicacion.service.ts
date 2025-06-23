@@ -8,7 +8,7 @@ export class PublicacionService {
 
   constructor(private http: HttpClient) { }
 
-  token : any = "eyJhbGciOiJIUzM4NCJ9.eyJuYW1lIjoiZGllZ28iLCJzdWIiOiJhZHJpYW4xNTE5MjAxMEBnbWFpbC5jb20iLCJpYXQiOjE3NTA3MTAxMzUsImV4cCI6MTc1MTMxNDkzNX0.jTW19j0ImFWY3drlV_2xpT84G2kwraQ6fq5dWGSlkOZHggG5EDQV8SX7NrLFabkZ"
+  token : any = "eyJhbGciOiJIUzM4NCJ9.eyJuYW1lIjoiZGllZ28iLCJzdWIiOiJhZHJpYW4xNTE5MjAxMEBnbWFpbC5jb20iLCJpYXQiOjE3NTA3MTk1OTUsImV4cCI6MTc1MTMyNDM5NX0.ZkRgXnq4MmtUGxYm2I6bFdy8Xqf-AVZCrbWyFkLifXzt9SL9KeiZpd5fh6200aUf"
 
   getPublicaciones(){
 

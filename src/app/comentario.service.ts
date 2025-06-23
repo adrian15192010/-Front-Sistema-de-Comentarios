@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ComentarioService {
 
-   token = 'eyJhbGciOiJIUzM4NCJ9.eyJuYW1lIjoiZGllZ28iLCJzdWIiOiJhZHJpYW4xNTE5MjAxMEBnbWFpbC5jb20iLCJpYXQiOjE3NTA3MTAxMzUsImV4cCI6MTc1MTMxNDkzNX0.jTW19j0ImFWY3drlV_2xpT84G2kwraQ6fq5dWGSlkOZHggG5EDQV8SX7NrLFabkZ'; // Reemplázalo con tu token real
+   token = 'eyJhbGciOiJIUzM4NCJ9.eyJuYW1lIjoiZGllZ28iLCJzdWIiOiJhZHJpYW4xNTE5MjAxMEBnbWFpbC5jb20iLCJpYXQiOjE3NTA3MTk1OTUsImV4cCI6MTc1MTMyNDM5NX0.ZkRgXnq4MmtUGxYm2I6bFdy8Xqf-AVZCrbWyFkLifXzt9SL9KeiZpd5fh6200aUf'; // Reemplázalo con tu token real
    headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   
    constructor(private http: HttpClient) { }

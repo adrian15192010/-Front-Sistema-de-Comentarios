@@ -42,3 +42,7 @@ input[type="checkbox"]{
     display: inline;
     margin-right: 4rem;
 }
+
+.puntero{
+    cursor: pointer;
+}
