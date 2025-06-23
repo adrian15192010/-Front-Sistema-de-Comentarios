@@ -1,0 +1,44 @@
+.contenedor {
+    margin: 3rem;
+    display: flex;
+    flex-direction: column; /* Cambia la dirección a columna */
+    justify-content: left;
+    align-items: flex-start; /* Alinear al inicio (izquierda) */
+    border: 0.1rem solid black;
+    max-width: 100%; /* Evitar desbordamiento horizontal */
+    word-wrap: break-word; /* Romper palabras largas */
+}
+
+.text {
+    display: block;
+    width: 100%; /* Ocupar todo el ancho disponible */
+    overflow-wrap: anywhere; /* Permitir romper palabras en cualquier punto */
+    white-space: normal; /* Asegurar saltos de línea normales */
+    min-width: 0; /* Permitir que el texto se ajuste */
+}
+
+input[type="checkbox"]{
+    margin-right: .5rem;
+}
+
+.comentario-logo{
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    top: .5rem;
+}
+
+.block{
+    margin-top: 1.5rem;
+    width: 50rem;
+    display: inline-block;
+}
+
+.sin-borde{
+    border: 1rem;
+}
+
+.reacciones-numeros, .respuestas-numeros{
+    display: inline;
+    margin-right: 4rem;
+}

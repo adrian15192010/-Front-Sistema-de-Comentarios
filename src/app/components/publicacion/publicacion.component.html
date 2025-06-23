@@ -1,4 +1,5 @@
 <div class="contenedor">
+    <b>{{publicacion().username}}</b>
     <p class="text">{{publicacion().text}}</p>
     <div class="block sin-borde">
         <input type="checkbox" (click)="reaccionar($event)" [checked]="publicacion().haveYourReaction"><p class="reacciones-numeros">{{publicacion().reaccionList.length}}</p>
