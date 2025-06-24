@@ -8,13 +8,20 @@ import { ComentarioService } from '../../comentario.service';
   templateUrl: './comentario.component.html',
   styleUrl: './comentario.component.css'
 })
-export class ComentarioComponent {
+export class ComentarioComponent implements OnInit {
 
    comentario = input<any>();
    respuestas : any = [];
    respuestasVisible : boolean = false
 
-   constructor(public comentarioService: ComentarioService){}
+   constructor(public comentarioService: ComentarioService){
+    
+   }
+
+   ngOnInit(): void {
+       console.log(this.comentario().reaccionList)
+   }
+
 
    
   getRespuestas(){
