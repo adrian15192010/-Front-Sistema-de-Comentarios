@@ -10,4 +10,8 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
+  login(data : any){
+     return this.http.post<any[]>(`http://localhost:8050/api/auth/login`, data);
+  }
+
 }

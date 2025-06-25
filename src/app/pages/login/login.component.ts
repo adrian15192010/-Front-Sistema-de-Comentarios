@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormControl, FormGroup} from '@angular/forms';
+import { LoginService } from '../../login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent {
   password: FormControl;                    
   
   
-constructor(){
+constructor(public loginService: LoginService, private router : Router){
     this.email = new FormControl(""),           
     this.password = new FormControl(""),        
                                                         
@@ -28,7 +30,14 @@ constructor(){
 send(){
 
 console.log(this.data.value);
-const evento = this.data.value
+const data = this.data.value
+
+this.loginService.login(data).subscribe({
+  next: (toke : any)=>{
+    this.loginService.toke = toke.access_token
+    this.router.navigate(['']);
+  }
+})
 
 }
 
