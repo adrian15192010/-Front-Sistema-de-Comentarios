@@ -1,0 +1,46 @@
+<br>
+<div class="center">
+    <form [formGroup]="eventoForm" (submit)="send()">
+        <fieldset>
+            <label for="evento-inicio">evento fecha inicio</label>
+            <input type="datetime-local" id="evento-inicio" formControlName="fechaInicio">
+        </fieldset>
+        <fieldset>
+            <label for="evento-fin">evento fecha fin</label>
+            <input type="datetime-local" id="evento-fin" formControlName="fechaFin">
+        </fieldset>
+        <fieldset>
+            <label for="nombre-evento">nombre evento</label>
+            <input type="text" id="nombre-evento" formControlName="nombre">
+        </fieldset>
+        <fieldset>
+            <label for="tipo-evento">tipo evento</label>
+            <input type="text" id="tipo-evento" formControlName="tipo">
+        </fieldset>
+        <button id="send-btn" [disabled]="">Create Evento</button> 
+    </form>
+</div>
+<hr>
+<br>
+<div class="center">
+    <form [formGroup]="eventoForm" (submit)="send()">
+        <fieldset>
+            <label for="evento-inicio">evento fecha inicio</label>
+            <input type="datetime-local" id="evento-inicio" formControlName="fechaInicio">
+        </fieldset>
+        <fieldset>
+            <label for="evento-fin">evento fecha fin</label>
+            <input type="datetime-local" id="evento-fin" formControlName="fechaFin">
+        </fieldset>
+        <fieldset>
+            <label for="nombre-evento">nombre evento</label>
+            <input type="text" id="nombre-evento" formControlName="nombre">
+        </fieldset>
+        <fieldset>
+            <label for="tipo-evento">tipo evento</label>
+            <input type="text" id="tipo-evento" formControlName="tipo">
+        </fieldset>
+        <button id="send-btn" [disabled]="">Create Evento</button> 
+    </form>
+</div>
+
