@@ -1,18 +1,19 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PublicacionService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public loginService: LoginService) { }
 
   token : any = "eyJhbGciOiJIUzM4NCJ9.eyJuYW1lIjoiZGllZ28iLCJzdWIiOiJhZHJpYW4xNTE5MjAxMEBnbWFpbC5jb20iLCJpYXQiOjE3NTA4MDI2MjUsImV4cCI6MTc1MTQwNzQyNX0.GZZnXxfjSAOMOc7XdnLTH0oPWBF9r75vlDQg7JVxwGc1kYmLpBWQbWIKHYRF1oww"
 
   getPublicaciones(){
 
-  const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${this.loginService.toke}`);
 
   return this.http.get<any[]>(`http://localhost:8040/api/publicacion/all?pagina=0`,
    { headers });
@@ -21,7 +22,7 @@ export class PublicacionService {
 
   getComentarios(publicacionId : any){
 
-  const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${this.loginService.toke}`);
 
   return this.http.get<any[]>(`http://localhost:8030/api/comentario/all/${publicacionId}`,
    { headers });
@@ -30,7 +31,7 @@ export class PublicacionService {
 
   reaccionar(publicacionId : any){
 
-  const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${this.loginService.toke}`);
 
    const body = new HttpParams()
     .set('id_publicacion', publicacionId.toString());

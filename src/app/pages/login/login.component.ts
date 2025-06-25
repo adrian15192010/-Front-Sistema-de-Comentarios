@@ -28,14 +28,14 @@ constructor(public loginService: LoginService, private router : Router){
 }
 
 send(){
-
 console.log(this.data.value);
 const data = this.data.value
 
 this.loginService.login(data).subscribe({
   next: (toke : any)=>{
     this.loginService.toke = toke.access_token
-    this.router.navigate(['']);
+    this.router.navigate(['bandeja']);
+    this.data.reset()
   }
 })
 
