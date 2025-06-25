@@ -2,22 +2,14 @@
 <div class="center">
     <form [formGroup]="eventoForm" (submit)="send()">
         <fieldset>
-            <label for="evento-inicio">evento fecha inicio</label>
-            <input type="datetime-local" id="evento-inicio" formControlName="fechaInicio">
+            <label for="email">email</label>
+            <input type="text" id="email" formControlName="email">
         </fieldset>
         <fieldset>
-            <label for="evento-fin">evento fecha fin</label>
-            <input type="datetime-local" id="evento-fin" formControlName="fechaFin">
+            <label for="evento-fin">password</label>
+            <input type="text" id="password" formControlName="password">
         </fieldset>
-        <fieldset>
-            <label for="nombre-evento">nombre evento</label>
-            <input type="text" id="nombre-evento" formControlName="nombre">
-        </fieldset>
-        <fieldset>
-            <label for="tipo-evento">tipo evento</label>
-            <input type="text" id="tipo-evento" formControlName="tipo">
-        </fieldset>
-        <button id="send-btn" [disabled]="">Create Evento</button> 
+        <button id="send-btn" [disabled]="">iniciar sesion</button> 
     </form>
 </div>
 <hr>
@@ -25,22 +17,14 @@
 <div class="center">
     <form [formGroup]="eventoForm" (submit)="send()">
         <fieldset>
-            <label for="evento-inicio">evento fecha inicio</label>
-            <input type="datetime-local" id="evento-inicio" formControlName="fechaInicio">
+            <label for="email-R">email</label>
+            <input type="text" id="email-R" formControlName="email">
         </fieldset>
         <fieldset>
-            <label for="evento-fin">evento fecha fin</label>
-            <input type="datetime-local" id="evento-fin" formControlName="fechaFin">
+            <label for="evento-fin-R">password</label>
+            <input type="text" id="password-R" formControlName="password-R">
         </fieldset>
-        <fieldset>
-            <label for="nombre-evento">nombre evento</label>
-            <input type="text" id="nombre-evento" formControlName="nombre">
-        </fieldset>
-        <fieldset>
-            <label for="tipo-evento">tipo evento</label>
-            <input type="text" id="tipo-evento" formControlName="tipo">
-        </fieldset>
-        <button id="send-btn" [disabled]="">Create Evento</button> 
+        <button id="send-btn-R" [disabled]="">registrarse</button> 
     </form>
 </div>
 
