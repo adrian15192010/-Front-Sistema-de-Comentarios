@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule, FormControl, FormGroup} from '@angula
 export class LoginComponent {
 
 
-  eventoForm: FormGroup;                       
+  data: FormGroup;                       
   email: FormControl;                        
   password: FormControl;                    
   
@@ -19,7 +19,7 @@ constructor(){
     this.email = new FormControl(""),           
     this.password = new FormControl(""),        
                                                         
-    this.eventoForm = new FormGroup({
+    this.data = new FormGroup({
       email: this.email,
       password: this.password
     })          
@@ -27,8 +27,8 @@ constructor(){
 
 send(){
 
-console.log(this.eventoForm.value);
-const evento = this.eventoForm.value
+console.log(this.data.value);
+const evento = this.data.value
 
 }
 
