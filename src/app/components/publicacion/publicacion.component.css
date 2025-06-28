@@ -46,3 +46,47 @@ input[type="checkbox"]{
 .puntero{
     cursor: pointer;
 }
+
+.heart-checkbox input {
+  display: none;
+}
+
+.heart-checkbox .heart {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  display: inline-block;
+  transform: rotate(-45deg);
+  cursor: pointer;
+  margin: 5px;
+  top: 0.5rem;
+  background: #ccc; /* Fondo gris para el cono */
+  transition: background 0.3s;
+}
+
+.heart-checkbox .heart::before,
+.heart-checkbox .heart::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #ccc;  /* Fondo gris también */
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.heart-checkbox .heart::before {
+  top: -8px;
+  left: 0;
+}
+
+.heart-checkbox .heart::after {
+  left: 8px;
+  top: 0;
+}
+
+.heart-checkbox input:checked + .heart,
+.heart-checkbox input:checked + .heart::before,
+.heart-checkbox input:checked + .heart::after {
+  background: red; /* Al marcarlo, todo se pone rojo */
+}

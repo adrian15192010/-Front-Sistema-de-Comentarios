@@ -7,10 +7,10 @@
         <img  [attr.data-id]="" class="comentario-logo" src="https://png.pngtree.com/png-clipart/20221118/ourmid/pngtree-comment-icon-symbol-png-image_6459148.png" alt="">
         <p class="respuestas-numeros">{{comentario().respuestaList.length}}</p>
            @if (respuestasVisible) {
-         <a (click)="ocultarRespuestas()" class="puntero">ocultar comentarios</a>   
+         <a (click)="ocultarRespuestas()" class="puntero">ocultar respuestas</a>   
         }
         @else {
-        <a (click)="getRespuestas()" class="puntero">mostrar comentarios</a>
+        <a (click)="getRespuestas()" class="puntero">mostrar respuesta</a>
         }
         <br>
     <div class="block">

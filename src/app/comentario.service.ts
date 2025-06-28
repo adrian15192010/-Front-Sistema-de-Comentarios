@@ -23,10 +23,12 @@ export class ComentarioService {
   }
 
   reaccionar(comentarioId: any){
+
+   console.log(this.loginService.toke) 
     
   const headers = new HttpHeaders().set('Authorization', `Bearer ${this.loginService.toke}`);
 
-  return this.http.get<any>(`http://localhost:8030/api/respuesta/comentario/create/${comentarioId}`,
+  return this.http.post<any>(`http://localhost:8030/api/reaccion/create?id_comentario=${comentarioId}`,{},
    {headers : headers });
    
   }

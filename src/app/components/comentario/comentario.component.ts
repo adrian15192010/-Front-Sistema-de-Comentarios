@@ -2,6 +2,7 @@ import { Component, input, OnInit } from '@angular/core';
 import { RespuestaComponent } from '../respuesta/respuesta.component';
 import { ComentarioService } from '../../comentario.service';
 import { LoginService } from '../../login.service';
+import {Reaccion} from '../../models/reaccion';
 
 @Component({
   selector: 'app-comentario',
@@ -37,8 +38,19 @@ export class ComentarioComponent implements OnInit {
 
   reaccionar(){
     this.comentarioService.reaccionar(this.comentario().id).subscribe({
-      next: (data)=>{
+      next: (data: any)=>{
+      
+          this.comentario().reaccionList.push(data)
+          console.log(this.comentario().reaccionList)
+        },
+        error:(e)=>{
+          
+        this.comentario().reaccionList = this.comentario().reaccionList.filter(
+        (reaccion: any) => reaccion.userId !== this.loginService.userId
+        );
 
+        
+        console.log(this.comentario().reaccionList)
       }
     })
   }
