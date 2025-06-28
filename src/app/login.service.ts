@@ -7,11 +7,17 @@ import { Injectable } from '@angular/core';
 export class LoginService {
 
   toke: string = ""
+  username: string = ""
+  userId : any = "" 
 
   constructor(private http: HttpClient) { }
 
   login(data : any){
      return this.http.post<any[]>(`http://localhost:8050/api/auth/login`, data);
+  }
+
+  GetUserData(token : string){
+     return this.http.get<any>(`http://localhost:8050/api/auth/is-token-valid/${token}`);
   }
 
 }

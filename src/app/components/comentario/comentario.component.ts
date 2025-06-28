@@ -34,4 +34,12 @@ export class ComentarioComponent implements OnInit {
     this.respuestas = []
   }
 
+  reaccionar(){
+    this.comentarioService.reaccionar(this.comentario().id).subscribe({
+      next: (data)=>{
+        
+      }
+    })
+  }
+
 }

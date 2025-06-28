@@ -34,11 +34,23 @@ const data = this.data.value
 this.loginService.login(data).subscribe({
   next: (toke : any)=>{
     this.loginService.toke = toke.access_token
+    
+    this.SetUserData(this.loginService.toke)
+
     this.router.navigate(['bandeja']);
     this.data.reset()
   }
 })
 
+}
+
+SetUserData(toke : string){
+  this.loginService.GetUserData(toke).subscribe({
+    next:(data)=>{
+      this.loginService.username = data.email
+      this.loginService.userId = data.userId
+    }
+  })
 }
 
 
