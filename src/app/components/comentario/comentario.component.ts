@@ -2,7 +2,7 @@ import { Component, input, OnInit } from '@angular/core';
 import { RespuestaComponent } from '../respuesta/respuesta.component';
 import { ComentarioService } from '../../comentario.service';
 import { LoginService } from '../../login.service';
-import {Reaccion} from '../../models/reaccion';
+
 
 @Component({
   selector: 'app-comentario',
