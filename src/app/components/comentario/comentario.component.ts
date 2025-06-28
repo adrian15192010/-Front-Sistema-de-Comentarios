@@ -1,6 +1,7 @@
 import { Component, input, OnInit } from '@angular/core';
 import { RespuestaComponent } from '../respuesta/respuesta.component';
 import { ComentarioService } from '../../comentario.service';
+import { LoginService } from '../../login.service';
 
 @Component({
   selector: 'app-comentario',
@@ -14,7 +15,7 @@ export class ComentarioComponent implements OnInit {
    respuestas : any = [];
    respuestasVisible : boolean = false
 
-   constructor(public comentarioService: ComentarioService){
+   constructor(public comentarioService: ComentarioService, public loginService: LoginService){
     
    }
 
@@ -37,9 +38,21 @@ export class ComentarioComponent implements OnInit {
   reaccionar(){
     this.comentarioService.reaccionar(this.comentario().id).subscribe({
       next: (data)=>{
-        
+
       }
     })
+  }
+
+  haveYourReaction() : boolean{
+
+  const amI =  this.comentario().reaccionList.find((reaccion : any)=> reaccion.userId === this.loginService.userId)
+
+    if(amI){
+      return true
+    }
+
+    return false
+
   }
 
 }
