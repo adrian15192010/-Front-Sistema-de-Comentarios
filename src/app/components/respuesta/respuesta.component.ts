@@ -33,5 +33,16 @@ export class RespuestaComponent {
     })
   }
 
+  haveYourReaction() : boolean{
+
+  const amI =  this.respuesta().reaccionList.find((reaccion : any)=> reaccion.userId === this.loginService.userId)
+
+    if(amI){
+      return true
+    }
+
+    return false
+
+  }
 
 }
