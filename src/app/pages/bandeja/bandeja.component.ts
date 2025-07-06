@@ -27,4 +27,14 @@ export class BandejaComponent implements OnInit  {
     })
   }
 
+  createPublicacion(): void{
+
+    this.publicacionService.createPublicacion().subscribe({
+      next: (data)=>{
+        this.publicacionesList.push(data);
+      }
+    })
+
+  }
+
 }

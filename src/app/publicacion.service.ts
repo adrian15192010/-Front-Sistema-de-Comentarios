@@ -42,6 +42,17 @@ export class PublicacionService {
 
   }
 
+  createPublicacion(){
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.loginService.toke}`);
+
+    const text = prompt("comenta !")
+
+    return this.http.post<any>(`http://localhost:8040/api/publicacion/create`,
+      {text}, 
+    {headers})
+  }
+
 
 
 }
