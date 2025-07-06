@@ -27,11 +27,15 @@ export class BandejaComponent implements OnInit  {
     })
   }
 
-  createPublicacion(): void{
+  createPublicacion(){
 
-    this.publicacionService.createPublicacion().subscribe({
-      next: (data)=>{
-        this.publicacionesList.push(data);
+      const text = prompt("comenta !")
+
+      if(!text) return
+
+    this.publicacionService.createPublicacion(text).subscribe({
+      next: (data : any)=>{
+        
       }
     })
 
