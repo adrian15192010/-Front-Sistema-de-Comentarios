@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <article>
-    <button class="create-publicacion"></button>
+    <button class="create-publicacion" (click)="createPublicacion()">Crear Publicación</button>
     @for (post of publicacionesList; track $index) {
         <app-publicacion [publicacion]="post"></app-publicacion>
     }
