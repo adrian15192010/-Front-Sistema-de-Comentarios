@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { PublicacionService } from '../../publicacion.service';
 import { PublicacionComponent } from '../../components/publicacion/publicacion.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-bandeja',
@@ -12,11 +13,14 @@ import { PublicacionComponent } from '../../components/publicacion/publicacion.c
 export class BandejaComponent implements OnInit  {
 
   publicacionesList : any[] = []
+  pageNumber = ""
 
-  constructor(public publicacionService: PublicacionService){}
+  constructor(public publicacionService: PublicacionService, private route: ActivatedRoute){}
 
   ngOnInit(): void {
+    this.pageNumber = this.route.snapshot.params['page'];
       this.getPublicaciones()
+      console.log(this.pageNumber)
   }
 
   getPublicaciones(){

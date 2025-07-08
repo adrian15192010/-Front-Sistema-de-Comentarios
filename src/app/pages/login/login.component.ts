@@ -11,20 +11,46 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-
-  data: FormGroup;                       
+  dataRegister : FormGroup
+  data: FormGroup;
+  name: FormControl                       
   email: FormControl;                        
   password: FormControl;                    
   
   
 constructor(public loginService: LoginService, private router : Router){
     this.email = new FormControl(""),           
-    this.password = new FormControl(""),        
+    this.password = new FormControl(""),
+    this.name = new FormControl(""),        
                                                         
     this.data = new FormGroup({
       email: this.email,
       password: this.password
-    })          
+    })    
+
+    this.dataRegister = new FormGroup({
+      name : this.name,
+      email: this.email,
+      password: this.password
+    })    
+    
+}
+
+register(){
+
+  const data = this.dataRegister.value
+
+  this.loginService.register(data).subscribe({
+    next : (data)=>{
+        alert("Usuario Creado Exitosamente")
+        this.dataRegister.reset()
+    },
+    error : (e)=>{
+        alert("Error")
+    }
+  })
+
+
 }
 
 send(){
