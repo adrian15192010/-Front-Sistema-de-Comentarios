@@ -13,18 +13,28 @@ import { ActivatedRoute } from '@angular/router';
 export class BandejaComponent implements OnInit  {
 
   publicacionesList : any[] = []
+  totalPages = 0
   pageNumber = ""
 
   constructor(public publicacionService: PublicacionService, private route: ActivatedRoute){}
 
   ngOnInit(): void {
+
+    this.getTotalPages()
+
     this.pageNumber = this.route.snapshot.params['page'];
-      this.getPublicaciones()
-      console.log(this.pageNumber)
+
+    if(this.pageNumber){
+      this.getPublicaciones(this.pageNumber)
+    }else{
+      this.getPublicaciones(this.totalPages)
+    }
+
+      
   }
 
-  getPublicaciones(){
-    this.publicacionService.getPublicaciones().subscribe({
+  getPublicaciones(pageNumber : any){
+    this.publicacionService.getPublicaciones(pageNumber).subscribe({
       next: (data : any[])=>{
         this.publicacionesList = data;
       }
@@ -43,6 +53,14 @@ export class BandejaComponent implements OnInit  {
       }
     })
 
+  }
+
+  getTotalPages(){
+     this.publicacionService.getTotalPages().subscribe({
+      next: (data)=>{
+        this.totalPages = data.totalPages
+      }
+     })
   }
 
 }

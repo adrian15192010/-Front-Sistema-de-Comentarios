@@ -11,11 +11,11 @@ export class PublicacionService {
 
   token : any = "eyJhbGciOiJIUzM4NCJ9.eyJuYW1lIjoiZGllZ28iLCJzdWIiOiJhZHJpYW4xNTE5MjAxMEBnbWFpbC5jb20iLCJpYXQiOjE3NTA4MDI2MjUsImV4cCI6MTc1MTQwNzQyNX0.GZZnXxfjSAOMOc7XdnLTH0oPWBF9r75vlDQg7JVxwGc1kYmLpBWQbWIKHYRF1oww"
 
-  getPublicaciones(){
+  getPublicaciones(pageNumber : any){
 
   const headers = new HttpHeaders().set('Authorization', `Bearer ${this.loginService.toke}`);
 
-  return this.http.get<any[]>(`http://localhost:8040/api/publicacion/all?pagina=0`,
+  return this.http.get<any[]>(`http://localhost:8040/api/publicacion/all?pagina=${pageNumber}`,
    { headers });
 
   }
@@ -51,6 +51,8 @@ export class PublicacionService {
     {headers})
   }
 
-
+  getTotalPages(){
+    return this.http.get<any>(`http://localhost:8040/api/publicacion/size`);
+  }
 
 }
