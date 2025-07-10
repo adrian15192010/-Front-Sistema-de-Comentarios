@@ -11,27 +11,36 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  
   dataRegister : FormGroup
-  data: FormGroup;
   name: FormControl                       
   email: FormControl;                        
-  password: FormControl;                    
+  password: FormControl; 
+  
+  data: FormGroup;
+  email_: FormControl;                        
+  password_: FormControl;   
   
   
 constructor(public loginService: LoginService, private router : Router){
+
     this.email = new FormControl(""),           
     this.password = new FormControl(""),
-    this.name = new FormControl(""),        
-                                                        
-    this.data = new FormGroup({
-      email: this.email,
-      password: this.password
-    })    
-
+    this.name = new FormControl(""),       
+    
+    this.email_ = new FormControl(""),           
+    this.password_ = new FormControl(""),
+      
+                                                
     this.dataRegister = new FormGroup({
       name : this.name,
       email: this.email,
       password: this.password
+    })    
+
+    this.data = new FormGroup({
+      email_: this.email_,
+      password_: this.password_
     })    
     
 }
@@ -42,10 +51,12 @@ register(){
 
   this.loginService.register(data).subscribe({
     next : (data)=>{
+      console.log(data)
         alert("Usuario Creado Exitosamente")
         this.dataRegister.reset()
     },
     error : (e)=>{
+      console.log(e)
         alert("Error")
     }
   })
@@ -59,12 +70,17 @@ const data = this.data.value
 
 this.loginService.login(data).subscribe({
   next: (toke : any)=>{
+
+    console.log(toke)
+
     this.loginService.toke = toke.access_token
     
     this.SetUserData(this.loginService.toke)
 
     this.router.navigate(['bandeja']);
     this.data.reset()
+  },error: (e)=>{
+    console.log(e)
   }
 })
 

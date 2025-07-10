@@ -2,12 +2,12 @@
 <div class="center">
     <form [formGroup]="data" (submit)="send()">
         <fieldset>
-            <label for="email">email</label>
-            <input type="text" id="email" formControlName="email">
+            <label for="email_">email</label>
+            <input type="text" id="email" formControlName="email_">
         </fieldset>
         <fieldset>
-            <label for="evento-fin">password</label>
-            <input type="text" id="password" formControlName="password">
+            <label for="password_">password</label>
+            <input type="text" id="password" formControlName="password_">
         </fieldset>
         <button id="send-btn" [disabled]="">iniciar sesion</button> 
     </form>
@@ -15,7 +15,11 @@
 <hr>
 <br>
 <div class="center">
-    <form [formGroup]="data" (submit)="register()">
+    <form [formGroup]="dataRegister" (submit)="register()">
+         <fieldset>
+            <label for="name-R">name</label>
+            <input type="text" id="name-R" formControlName="name">
+        </fieldset>
         <fieldset>
             <label for="email-R">email</label>
             <input type="text" id="email-R" formControlName="email">

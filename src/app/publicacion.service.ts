@@ -13,6 +13,8 @@ export class PublicacionService {
 
   getPublicaciones(pageNumber : any){
 
+  
+
   const headers = new HttpHeaders().set('Authorization', `Bearer ${this.loginService.toke}`);
 
   return this.http.get<any[]>(`http://localhost:8040/api/publicacion/all?pagina=${pageNumber}`,

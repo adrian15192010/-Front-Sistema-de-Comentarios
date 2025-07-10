@@ -17,7 +17,9 @@ export class LoginService {
   }
 
   login(data : any){
-     return this.http.post<any[]>(`http://localhost:8050/api/auth/login`, data);
+     return this.http.post<any[]>(`http://localhost:8050/api/auth/login`, {email: data.email_,
+      password: data.password_
+     });
   }
 
   GetUserData(token : string){
