@@ -24,7 +24,7 @@ export class BandejaComponent implements OnInit  {
 
   ngOnInit(): void {
    
-  this.route.paramMap.subscribe(params => {
+  this.route.paramMap.subscribe(params => { // para rutas con parametros, ya que no pasa por el constructor()
       //const page = params.get('page');
       this.getTotalPages()
     });
