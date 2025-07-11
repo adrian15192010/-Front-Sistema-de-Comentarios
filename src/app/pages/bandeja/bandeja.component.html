@@ -5,7 +5,9 @@
     @for (post of publicacionesList; track $index) {
         <app-publicacion [publicacion]="post"></app-publicacion>
     }
-    <br><br>
-    <button (click)="atras()"><-</button>
+    <br>
+    <div class="botons">
+        <button class="paginar" (click)="siguiente()"><-</button><button class="paginar" (click)="atras()">-></button>
+    </div>
     <br><br>
 </article>

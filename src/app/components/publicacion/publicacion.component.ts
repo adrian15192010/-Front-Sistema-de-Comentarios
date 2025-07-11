@@ -17,7 +17,9 @@ export class PublicacionComponent implements OnInit{
 
   constructor(public publicacionService: PublicacionService){}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+     
+  }
 
   getComentarios(){
     this.publicacionService.getComentarios(this.publicacion().id).subscribe({
@@ -29,6 +31,7 @@ export class PublicacionComponent implements OnInit{
   }
 
   ocultarComentarios(){
+     console.log(this.publicacion())
     this.comentariosVisible = false
     this.comentarios = []
   }
@@ -41,9 +44,10 @@ export class PublicacionComponent implements OnInit{
     next:(data)=>{
       console.log(data)
       this.publicacion().reaccionList = data 
+      this.publicacion().haveYourReaction = !this.publicacion().haveYourReaction
     },
     error: (e)=>{
-      console.log(e)
+    this.publicacion().haveYourReaction = !this.publicacion().haveYourReaction
     }
   })  
 

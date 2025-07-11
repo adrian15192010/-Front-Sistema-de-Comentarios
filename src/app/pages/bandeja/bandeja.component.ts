@@ -3,6 +3,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { PublicacionService } from '../../publicacion.service';
 import { PublicacionComponent } from '../../components/publicacion/publicacion.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PaginacionService } from '../../paginacion.service';
 
 @Component({
   selector: 'app-bandeja',
@@ -18,19 +19,21 @@ export class BandejaComponent implements OnInit  {
  
 
   constructor(public publicacionService: PublicacionService, private route: ActivatedRoute,  
-    private router : Router){
+    private router : Router,
+    public paginacionService: PaginacionService){
     
   }
 
   ngOnInit(): void {
+
+    this.getTotalPages()
    
+    /*
   this.route.paramMap.subscribe(params => { // para rutas con parametros, ya que no pasa por el constructor()
       //const page = params.get('page');
       this.getTotalPages()
     });
-
-
-      
+*/
   }
 
   getPublicaciones(pageNumber : any){
@@ -39,7 +42,7 @@ export class BandejaComponent implements OnInit  {
 
           console.log("get")
 
-        this.publicacionesList = data;
+        this.publicacionesList = data.reverse();
       }
     })
   }
@@ -65,39 +68,36 @@ export class BandejaComponent implements OnInit  {
      this.publicacionService.getTotalPages().subscribe({
       next: (data)=>{
 
-        this.totalPages = data.totalPages
-       
-        if(this.route.snapshot.params['page']){
-
-          console.log("pasa en pageNumber")
-           const numero : number = parseInt(this.route.snapshot.params['page'])
-
-          this.pageNumber = numero
-
-        this.getPublicaciones(this.pageNumber)
-
-        }else{
-
-          this.pageNumber = this.totalPages - 1
-
-        this.getPublicaciones(this.pageNumber)
-
-        }
+        this.paginacionService.totalPages = data.totalPages
+        this.paginacionService.pageNumber = this.paginacionService.totalPages - 1
         
-        console.log("numero de pagina : "+ this.pageNumber)
+        this.getPublicaciones(this.paginacionService.pageNumber)
+       
       }
      })
   }
 
   atras(){
 
-    this.pageNumber--
+    if(this.paginacionService.pageNumber > 0){
 
-    console.log("atras")
-    
-    this.router.navigate([`bandeja/${this.pageNumber}`]);
+      this.paginacionService.pageNumber--
+  
+      this.getPublicaciones(this.paginacionService.pageNumber)
 
-     console.log("atras fin")
+    }
+
+  }
+
+  siguiente(){
+
+    if(this.paginacionService.pageNumber < (this.paginacionService.totalPages-1))
+
+    this.paginacionService.pageNumber++
+
+    this.getPublicaciones(this.paginacionService.pageNumber)
+
+     
   }
 
 }
