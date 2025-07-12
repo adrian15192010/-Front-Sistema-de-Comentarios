@@ -1,4 +1,4 @@
-import { Component, OnInit, output } from '@angular/core';
+import { Component, OnInit, output, ViewChild } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { PublicacionService } from '../../publicacion.service';
 import { PublicacionComponent } from '../../components/publicacion/publicacion.component';
@@ -16,6 +16,8 @@ export class BandejaComponent implements OnInit  {
   publicacionesList : any[] = []
   totalPages: number = 0
   pageNumber: number = 0
+
+  @ViewChild(PublicacionComponent) hijo!: PublicacionComponent;
 
   isDisabled_: boolean = false
   _isDisabled: boolean = true
@@ -100,7 +102,7 @@ export class BandejaComponent implements OnInit  {
 
   atras(e: any){
 
-    
+    this.hijo.comentariosVisible = false
 
     if(this.paginacionService.pageNumber > 0){
 
