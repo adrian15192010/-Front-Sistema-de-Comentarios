@@ -17,8 +17,12 @@
     </div>
     <br>
     <div class="block">
-        @for (comentario of comentarios; track $index) {
-            <app-comentario [comentario]="comentario"></app-comentario>
+
+        @if (comentariosVisible) {
+            @for (comentario of comentarios; track $index) {
+                <app-comentario [comentario]="comentario"></app-comentario>
+            }
         }
+
     </div>
 </div>

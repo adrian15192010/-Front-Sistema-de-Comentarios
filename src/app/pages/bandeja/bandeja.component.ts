@@ -115,11 +115,11 @@ export class BandejaComponent implements OnInit  {
     if(this.paginacionService.pageNumber === 0) this.isDisabled_ = true
     if(this.paginacionService.pageNumber < this.paginacionService.totalPages - 1) this._isDisabled = false
     
-    
-
   }
 
   siguiente(e: any){
+
+    this.hijo.comentariosVisible = false
 
     if(this.paginacionService.pageNumber < (this.paginacionService.totalPages-1)){
 
