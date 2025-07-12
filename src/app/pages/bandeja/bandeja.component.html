@@ -3,7 +3,7 @@
 <article>
     <button class="create-publicacion" (click)="createPublicacion()">Crear Publicación</button>
     @for (post of publicacionesList; track $index) {
-        <app-publicacion [publicacion]="post" [visible]="false"></app-publicacion>
+        <app-publicacion [publicacion]="post"></app-publicacion>
     }
     <br>
     <div class="botons">

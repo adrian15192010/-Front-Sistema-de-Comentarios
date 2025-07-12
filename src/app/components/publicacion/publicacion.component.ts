@@ -16,10 +16,7 @@ export class PublicacionComponent implements OnInit{
   comentariosVisible : boolean = false
   
 
-  @Input()
-  set visible(valor: boolean) {
-  this.comentariosVisible = valor;
-}
+  
   
 
   constructor(public publicacionService: PublicacionService, public paginacionService: PaginacionService){}
