@@ -19,7 +19,7 @@ export class BandejaComponent implements OnInit  {
 
   @ViewChildren(PublicacionComponent) hijos!: PublicacionComponent[];
 
-  isDisabled_: boolean = false
+  isDisabled_: boolean = true
   _isDisabled: boolean = true
 
   
@@ -49,6 +49,7 @@ export class BandejaComponent implements OnInit  {
           console.log("get")
 
         this.publicacionesList = data.reverse();
+        this.isDisabled_ = false
       }
     })
   }
