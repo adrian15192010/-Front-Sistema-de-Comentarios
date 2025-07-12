@@ -3,11 +3,12 @@
 <article>
     <button class="create-publicacion" (click)="createPublicacion()">Crear Publicación</button>
     @for (post of publicacionesList; track $index) {
-        <app-publicacion [publicacion]="post"></app-publicacion>
+        <app-publicacion [publicacion]="post" [visible]="false"></app-publicacion>
     }
     <br>
     <div class="botons">
-        <button class="paginar" (click)="siguiente()"><-</button><button class="paginar" (click)="atras()">-></button>
+        <button class="paginar" (click)="siguiente($event)" [disabled]="_isDisabled"><-</button>
+        <button class="paginar" (click)="atras($event)" [disabled]="isDisabled_">-></button>
     </div>
     <br><br>
 </article>

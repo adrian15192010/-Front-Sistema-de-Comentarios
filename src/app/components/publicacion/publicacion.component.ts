@@ -1,6 +1,7 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, Input, input, OnInit } from '@angular/core';
 import { PublicacionService } from '../../publicacion.service';
 import { ComentarioComponent } from '../comentario/comentario.component';
+import { PaginacionService } from '../../paginacion.service';
 
 @Component({
   selector: 'app-publicacion',
@@ -15,10 +16,15 @@ export class PublicacionComponent implements OnInit{
   comentariosVisible : boolean = false
   
 
-  constructor(public publicacionService: PublicacionService){}
+  @Input()
+  set visible(valor: boolean) {
+  this.comentariosVisible = valor;
+}
+  
+
+  constructor(public publicacionService: PublicacionService, public paginacionService: PaginacionService){}
 
   ngOnInit(): void {
-     
   }
 
   getComentarios(){

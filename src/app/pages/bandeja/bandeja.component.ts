@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, output } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { PublicacionService } from '../../publicacion.service';
 import { PublicacionComponent } from '../../components/publicacion/publicacion.component';
@@ -16,7 +16,11 @@ export class BandejaComponent implements OnInit  {
   publicacionesList : any[] = []
   totalPages: number = 0
   pageNumber: number = 0
- 
+
+  isDisabled_: boolean = false
+  _isDisabled: boolean = true
+
+  
 
   constructor(public publicacionService: PublicacionService, private route: ActivatedRoute,  
     private router : Router,
@@ -57,7 +61,24 @@ export class BandejaComponent implements OnInit  {
 
     this.publicacionService.createPublicacion(text).subscribe({
       next: (data : any)=>{
+
+        if(this.publicacionesList.length < 3){
+          this.getPublicaciones(this.paginacionService.pageNumber)
+        }
         
+   /////////////////////////////////////////////////////////////////////     
+        this.publicacionService.getTotalPages().subscribe({
+      next: (data)=>{
+
+        let bolso: number = this.paginacionService.totalPages
+
+        this.paginacionService.totalPages = data.totalPages
+
+        if(bolso != this.paginacionService.totalPages) this._isDisabled = false
+
+      }
+     })
+   /////////////////////////////////////////////////////////////////////
       }
     })
 
@@ -77,26 +98,44 @@ export class BandejaComponent implements OnInit  {
      })
   }
 
-  atras(){
+  atras(e: any){
+
+    
 
     if(this.paginacionService.pageNumber > 0){
 
       this.paginacionService.pageNumber--
-  
+
       this.getPublicaciones(this.paginacionService.pageNumber)
 
     }
 
+    if(this.paginacionService.pageNumber === 0) this.isDisabled_ = true
+    if(this.paginacionService.pageNumber < this.paginacionService.totalPages - 1) this._isDisabled = false
+    
+    
+
   }
 
-  siguiente(){
+  siguiente(e: any){
 
-    if(this.paginacionService.pageNumber < (this.paginacionService.totalPages-1))
+    if(this.paginacionService.pageNumber < (this.paginacionService.totalPages-1)){
 
-    this.paginacionService.pageNumber++
+      this.paginacionService.pageNumber++
+  
+      this.getPublicaciones(this.paginacionService.pageNumber)
+    }
 
-    this.getPublicaciones(this.paginacionService.pageNumber)
+    console.log(this.paginacionService.pageNumber, this.paginacionService.totalPages - 1)
+
+    if(this.paginacionService.pageNumber != 0) this.isDisabled_ = false
+
+    if(this.paginacionService.pageNumber === (this.paginacionService.totalPages - 1)) this._isDisabled = true
  
+  }
+
+  enviarFalse(): boolean{
+    return false
   }
 
 }
