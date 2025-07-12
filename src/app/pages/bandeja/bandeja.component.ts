@@ -17,6 +17,8 @@ export class BandejaComponent implements OnInit  {
   totalPages: number = 0
   pageNumber: number = 0
 
+  //@ViewChild(PublicacionComponent) hijo!: PublicacionComponent;
+
   @ViewChildren(PublicacionComponent) hijos!: PublicacionComponent[];
 
   isDisabled_: boolean = true
