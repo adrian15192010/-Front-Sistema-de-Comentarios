@@ -96,8 +96,7 @@ export class BandejaComponent implements OnInit  {
     this.paginacionService.pageNumber++
 
     this.getPublicaciones(this.paginacionService.pageNumber)
-
-     
+ 
   }
 
 }
