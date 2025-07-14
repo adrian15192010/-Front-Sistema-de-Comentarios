@@ -4,7 +4,7 @@
 <p class="text">{{respuesta().text}}</p> 
  <div class="block sin-borde">
     <label class="heart-checkbox">
-        <input type="checkbox" (click)="reaccionar()">
+        <input type="checkbox" (click)="reaccionar()" [checked]="haveYourReaction()">
         <span class="heart"></span>
     </label>
         <p class="reacciones-numeros">{{respuesta().reaccionList.length}}</p>
