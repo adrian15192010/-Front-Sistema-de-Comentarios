@@ -52,6 +52,16 @@ export class BandejaComponent implements OnInit  {
 
         this.publicacionesList = data.reverse();
         this.isDisabled_ = false
+
+         if(this.paginacionService.pageNumber === 0 && this.paginacionService.totalPages < 2){
+          console.log(this.paginacionService.pageNumber)
+          this.isDisabled_ = true
+          this._isDisabled = true
+        } 
+
+    if(this.paginacionService.pageNumber === 0) this.isDisabled_ = true
+    if(this.paginacionService.pageNumber < this.paginacionService.totalPages - 1) this._isDisabled = false
+          
       }
     })
   }
@@ -69,6 +79,10 @@ export class BandejaComponent implements OnInit  {
 
         if(this.publicacionesList.length < 3){
           this.getPublicaciones(this.paginacionService.pageNumber)
+          alert("pasa")
+        }else{
+          alert("no pasa")
+          if(this.publicacionesList.length > 1) this._isDisabled = false
         }
         
    /////////////////////////////////////////////////////////////////////     
@@ -80,6 +94,11 @@ export class BandejaComponent implements OnInit  {
         this.paginacionService.totalPages = data.totalPages
 
         if(bolso != this.paginacionService.totalPages) this._isDisabled = false
+
+        if(this.paginacionService.totalPages < 2){
+          this.isDisabled_ = true
+          this._isDisabled = true
+        }
 
       }
      })
@@ -95,8 +114,10 @@ export class BandejaComponent implements OnInit  {
       next: (data)=>{
 
         this.paginacionService.totalPages = data.totalPages
-        this.paginacionService.pageNumber = this.paginacionService.totalPages - 1
+        this.paginacionService.pageNumber = this.paginacionService.totalPages > 0 ? this.paginacionService.totalPages - 1: this.paginacionService.totalPages
         
+       
+
         this.getPublicaciones(this.paginacionService.pageNumber)
        
       }
@@ -104,6 +125,8 @@ export class BandejaComponent implements OnInit  {
   }
 
   atras(e: any){
+
+    console.log(this.paginacionService.totalPages, this.paginacionService.pageNumber)
 
     this.hijos.forEach((hijo, index) => {
         hijo.comentariosVisible = false
@@ -141,10 +164,6 @@ export class BandejaComponent implements OnInit  {
 
     if(this.paginacionService.pageNumber === (this.paginacionService.totalPages - 1)) this._isDisabled = true
  
-  }
-
-  enviarFalse(): boolean{
-    return false
   }
 
 }
