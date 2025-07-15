@@ -12,6 +12,12 @@ export class ComentarioService {
   
    constructor(private http: HttpClient, public loginService: LoginService) { }
 
+   createComentario(publicacionId : any){
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.loginService.toke}`);
+
+  return this.http.get<any[]>(`http://localhost:8030/api/comentario/create/${publicacionId}`,
+   {headers : headers });
+   }
 
    getRespuestas(comentarioId : any){
 
