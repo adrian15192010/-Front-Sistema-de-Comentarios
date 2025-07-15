@@ -77,8 +77,9 @@ export class BandejaComponent implements OnInit  {
     this.publicacionService.createPublicacion(text).subscribe({
       next: (data : any)=>{
 
-        if(this.publicacionesList.length < 3){
-          this.getPublicaciones(this.paginacionService.pageNumber)
+        if(this.publicacionesList.length < 3){  /////// poner "solucion" poner de primero en la lista no push
+         // this.getPublicaciones(this.paginacionService.pageNumber)
+          this.publicacionesList.push(data)
           alert("pasa")
         }else{
           alert("no pasa")
