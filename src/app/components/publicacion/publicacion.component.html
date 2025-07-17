@@ -6,7 +6,7 @@
             <input type="checkbox" (click)="reaccionar($event)" [checked]="publicacion().haveYourReaction">
             <span class="heart"></span></label>
         <p class="reacciones-numeros">{{publicacion().reaccionList.length}}</p>
-        <img  [attr.data-id]="publicacion().id" class="comentario-logo" src="https://png.pngtree.com/png-clipart/20221118/ourmid/pngtree-comment-icon-symbol-png-image_6459148.png" alt="">
+        <img (click)="crearComentario()" [attr.data-id]="publicacion().id" class="comentario-logo" src="https://png.pngtree.com/png-clipart/20221118/ourmid/pngtree-comment-icon-symbol-png-image_6459148.png" alt="">
         <p class="comentarios-numeros">{{publicacion().sizeComentario}}</p>
         @if (comentariosVisible) {
          <a (click)="ocultarComentarios()" class="puntero">ocultar comentarios</a>   

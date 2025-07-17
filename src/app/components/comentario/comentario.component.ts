@@ -24,8 +24,8 @@ export class ComentarioComponent implements OnInit {
        console.log(this.comentario().reaccionList)
    }
 
-
    
+
   getRespuestas(){
     this.respuestas = this.comentario().respuestaList;
     this.respuestasVisible = true

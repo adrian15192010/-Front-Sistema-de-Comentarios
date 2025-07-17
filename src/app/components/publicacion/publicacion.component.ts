@@ -2,6 +2,7 @@ import { Component, Input, input, OnInit } from '@angular/core';
 import { PublicacionService } from '../../publicacion.service';
 import { ComentarioComponent } from '../comentario/comentario.component';
 import { PaginacionService } from '../../paginacion.service';
+import { ComentarioService } from '../../comentario.service';
 
 @Component({
   selector: 'app-publicacion',
@@ -19,7 +20,9 @@ export class PublicacionComponent implements OnInit{
   
   
 
-  constructor(public publicacionService: PublicacionService, public paginacionService: PaginacionService){}
+  constructor(public publicacionService: PublicacionService,
+     public paginacionService: PaginacionService,
+      public comentarioService: ComentarioService){}
 
   ngOnInit(): void {
   }
@@ -32,6 +35,16 @@ export class PublicacionComponent implements OnInit{
     })
     this.comentariosVisible = true
   }
+
+  crearComentario(){
+
+   this.comentarioService.createComentario(this.publicacion().id)?.subscribe({
+    next: (data)=>{
+      this.comentarios.push(data)
+    }
+   })
+
+   }
 
   ocultarComentarios(){
      console.log(this.publicacion())

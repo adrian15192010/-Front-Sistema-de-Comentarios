@@ -15,7 +15,11 @@ export class ComentarioService {
    createComentario(publicacionId : any){
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.loginService.toke}`);
 
-  return this.http.get<any[]>(`http://localhost:8030/api/comentario/create/${publicacionId}`,
+     const text = prompt("comenta !")
+
+      if(!text) return
+
+  return this.http.post<any>(`http://localhost:8030/api/comentario/create/${publicacionId}`,{text: text},
    {headers : headers });
    }
 

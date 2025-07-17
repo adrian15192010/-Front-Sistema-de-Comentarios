@@ -70,7 +70,7 @@ export class BandejaComponent implements OnInit  {
 
     console.log(this.totalPages)
 
-      const text = prompt("comenta !")
+      const text = prompt("publica !")
 
       if(!text) return
 
