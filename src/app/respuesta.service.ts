@@ -37,5 +37,18 @@ export class RespuestaService {
 
   }
 
+  createRespuestaToRespuesta(respuestaId : any){
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.loginService.toke}`);
+
+     const text = prompt("reponde !")
+
+      if(!text) return
+
+    return this.http.post<any>(`http://localhost:8030/api/respuesta/respuesta/create/${respuestaId}`,{text: text},
+   {headers : headers });
+
+  }
+
 
 }

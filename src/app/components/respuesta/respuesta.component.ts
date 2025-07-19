@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { RespuestaService } from '../../respuesta.service';
 import { LoginService } from '../../login.service';
 
@@ -12,6 +12,7 @@ export class RespuestaComponent {
 
    respuesta = input<any>();
    respuestas : any = [];
+   login = output<any>();
 
    constructor(public respuestaService: RespuestaService, public loginService: LoginService){}
 
@@ -43,6 +44,14 @@ export class RespuestaComponent {
 
     return false
 
+  }
+
+  createRespuestaToRespuesta(){
+    this.respuestaService.createRespuestaToRespuesta(this.respuesta().id)?.subscribe({
+      next:(data)=>{
+        this.login.emit(data)
+      }
+    })
   }
 
 }

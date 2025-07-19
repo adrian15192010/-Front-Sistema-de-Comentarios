@@ -19,7 +19,7 @@
         <br>
     <div class="block">
         @for (respuesta of respuestas; track $index) {
-            <app-respuesta [respuesta]="respuesta"></app-respuesta>
+            <app-respuesta [respuesta]="respuesta" (login)="addRespuesta($event)"></app-respuesta>
         }
     </div>
     </div>

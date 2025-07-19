@@ -77,4 +77,8 @@ export class ComentarioComponent implements OnInit {
 
   }
 
+  addRespuesta(e: any){
+      this.comentario().respuestaList.push(e)
+  }
+
 }
