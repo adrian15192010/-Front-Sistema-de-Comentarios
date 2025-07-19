@@ -24,4 +24,18 @@ export class RespuestaService {
   }
 
 
+  createRespuesta(comentarioId : any){
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.loginService.toke}`);
+
+     const text = prompt("reponde !")
+
+      if(!text) return
+
+    return this.http.post<any>(`http://localhost:8030/api/respuesta/comentario/create/${comentarioId}`,{text: text},
+   {headers : headers });
+
+  }
+
+
 }

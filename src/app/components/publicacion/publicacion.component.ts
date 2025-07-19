@@ -41,6 +41,7 @@ export class PublicacionComponent implements OnInit{
    this.comentarioService.createComentario(this.publicacion().id)?.subscribe({
     next: (data)=>{
       this.comentarios.push(data)
+      this.publicacion().sizeComentario++
     }
    })
 

@@ -2,6 +2,7 @@ import { Component, input, OnInit } from '@angular/core';
 import { RespuestaComponent } from '../respuesta/respuesta.component';
 import { ComentarioService } from '../../comentario.service';
 import { LoginService } from '../../login.service';
+import { RespuestaService } from '../../respuesta.service';
 
 
 @Component({
@@ -16,7 +17,9 @@ export class ComentarioComponent implements OnInit {
    respuestas : any = [];
    respuestasVisible : boolean = false
 
-   constructor(public comentarioService: ComentarioService, public loginService: LoginService){
+   constructor(public comentarioService: ComentarioService, public loginService: LoginService, 
+    public respuestaService : RespuestaService
+   ){
     
    }
 
@@ -24,6 +27,13 @@ export class ComentarioComponent implements OnInit {
        console.log(this.comentario().reaccionList)
    }
 
+   crearRespuesta(){
+      this.respuestaService.createRespuesta(this.comentario().id)?.subscribe({
+        next: (data)=>{
+          this.comentario().respuestaList.push(data)
+        }
+      })
+   }
    
 
   getRespuestas(){
