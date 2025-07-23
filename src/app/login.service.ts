@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -24,6 +24,13 @@ export class LoginService {
 
   GetUserData(token : string){
      return this.http.get<any>(`http://localhost:8050/api/auth/is-token-valid/${token}`);
+  }
+
+  logOut(){
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.toke}`);
+
+     return this.http.get<any>(`http://localhost:8050/api/auth/log-out`,{ headers });
   }
 
 }

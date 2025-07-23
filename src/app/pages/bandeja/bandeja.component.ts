@@ -4,6 +4,7 @@ import { PublicacionService } from '../../publicacion.service';
 import { PublicacionComponent } from '../../components/publicacion/publicacion.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaginacionService } from '../../paginacion.service';
+import { LoginService } from '../../login.service';
 
 @Component({
   selector: 'app-bandeja',
@@ -28,7 +29,8 @@ export class BandejaComponent implements OnInit  {
 
   constructor(public publicacionService: PublicacionService, private route: ActivatedRoute,  
     private router : Router,
-    public paginacionService: PaginacionService){
+    public paginacionService: PaginacionService,
+    public loginService : LoginService){
     
   }
 
@@ -166,5 +168,7 @@ export class BandejaComponent implements OnInit  {
     if(this.paginacionService.pageNumber === (this.paginacionService.totalPages - 1)) this._isDisabled = true
  
   }
+
+ 
 
 }
