@@ -57,7 +57,7 @@ register(){
     },
     error : (e)=>{
       console.log(e)
-        alert("Error")
+        alert("Error: El usuario ya existe")
     }
   })
 
@@ -80,7 +80,7 @@ this.loginService.login(data).subscribe({
     this.router.navigate(['bandeja']);
     this.data.reset()
   },error: (e)=>{
-    console.log(e)
+    alert("Error: error de usuario o de contraseña")
   }
 })
 
