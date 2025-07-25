@@ -49,6 +49,7 @@ export class RespuestaComponent {
   createRespuestaToRespuesta(){
     this.respuestaService.createRespuestaToRespuesta(this.respuesta().id)?.subscribe({
       next:(data)=>{
+        this.respuesta().respuestaList.push(data)
         this.login.emit(data)
       }
     })
