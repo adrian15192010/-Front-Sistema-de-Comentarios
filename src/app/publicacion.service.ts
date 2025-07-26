@@ -57,4 +57,22 @@ export class PublicacionService {
     return this.http.get<any>(`http://localhost:8040/api/publicacion/size`);
   }
 
+  getMyPublicaciones(){
+
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${this.loginService.toke}`);
+
+  return this.http.get<any[]>(`http://localhost:8040/api/publicacion/my`,
+   { headers });
+
+  }
+
+  deletePublicacion(publicacionId : any){
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.loginService.toke}`);
+
+  return this.http.delete<any>(`http://localhost:8040/api/publicacion/delete?id=${publicacionId}`,
+   { headers });
+
+  }
+
 }

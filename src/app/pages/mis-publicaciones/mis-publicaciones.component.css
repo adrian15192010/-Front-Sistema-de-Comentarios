@@ -1,0 +1,8 @@
+
+div{
+    display: inline-block;
+    background-color: burlywood;
+    margin-left: 5rem;
+    width: 30rem;
+    word-wrap: break-word;
+}

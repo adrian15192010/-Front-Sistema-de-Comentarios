@@ -29,3 +29,9 @@ button:hover{
      border-color: antiquewhite;
 }
 
+a{
+    position: relative;
+    left: 10rem;
+    color: white;
+}
+

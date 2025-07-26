@@ -1,0 +1,13 @@
+<app-header></app-header>
+
+<br>
+
+@for (post of mis_publicaciones; track $index) {
+    <br>
+    <div>
+        <b>publicacion</b>
+        <p>{{post.text}}</p>
+    </div>
+    <button [attr.data-id]="post.id" (click)="deletePublicacion($event)">eliminar</button>
+    <br>
+}
