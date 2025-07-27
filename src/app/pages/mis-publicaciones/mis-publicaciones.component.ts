@@ -43,7 +43,8 @@ this.publicacionService.deletePublicacion(publicacionId).subscribe({
   next: (data : any)=>{
 
     alert(data.mensaje)
-
+    e.target?.parentElement.classList.add("none")
+    console.log(e.target?.parentElement)
   }
 })
 

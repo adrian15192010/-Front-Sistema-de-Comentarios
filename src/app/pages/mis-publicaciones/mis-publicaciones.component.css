@@ -1,8 +1,12 @@
-
-div{
-    display: inline-block;
+ .contenedor{
+    display: block;
     background-color: burlywood;
     margin-left: 5rem;
+    margin-top: 1rem;
     width: 30rem;
     word-wrap: break-word;
+}
+
+.none{
+    display: none;
 }

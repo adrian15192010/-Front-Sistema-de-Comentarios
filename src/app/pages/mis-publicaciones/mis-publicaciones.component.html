@@ -3,11 +3,10 @@
 <br>
 
 @for (post of mis_publicaciones; track $index) {
-    <br>
-    <div>
-        <b>publicacion</b>
-        <p>{{post.text}}</p>
+    <div class="contenedor">
+            <b>publicacion</b>
+            <p>{{post.text}}</p>
+        <button [attr.data-id]="post.id" (click)="deletePublicacion($event)">eliminar</button>   
     </div>
-    <button [attr.data-id]="post.id" (click)="deletePublicacion($event)">eliminar</button>
-    <br>
 }
+<br><br><br>
