@@ -9,7 +9,7 @@ export class PublicacionService {
 
   constructor(private http: HttpClient, public loginService: LoginService) { }
 
-  token : any = "eyJhbGciOiJIUzM4NCJ9.eyJuYW1lIjoiZGllZ28iLCJzdWIiOiJhZHJpYW4xNTE5MjAxMEBnbWFpbC5jb20iLCJpYXQiOjE3NTA4MDI2MjUsImV4cCI6MTc1MTQwNzQyNX0.GZZnXxfjSAOMOc7XdnLTH0oPWBF9r75vlDQg7JVxwGc1kYmLpBWQbWIKHYRF1oww"
+  
 
   getPublicaciones(pageNumber : any){
 
